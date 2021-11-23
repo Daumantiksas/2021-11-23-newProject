@@ -8,3 +8,7 @@ accordion(books);
 demoStorages(books);
 
 
+for(let btn of document.querySelectorAll('.btn')){
+    btn.onclick = (e)=>{
+        e.target.style.color = 'green';
+    }}

@@ -35,7 +35,8 @@ const renderNames = (books) => {
                 const h5 = document.createElement('h5');
                 h5.textContent = book.name;
                 const btn= document.createElement('button')
-                btn.innerHTML='(<i class="bi bi-cart"></i>)'
+                btn.className = 'btn'
+                btn.innerHTML='<i class="bi bi-cart"></i>'
 
     
                 const ul = document.createElement('ul');

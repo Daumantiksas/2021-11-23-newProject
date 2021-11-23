@@ -3131,6 +3131,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data */ "./src/data.js");
 /* harmony import */ var _students__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./students */ "./src/students.js");
 /* harmony import */ var _scss_demoStorages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scss/demoStorages */ "./src/scss/demoStorages.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 
@@ -3140,6 +3146,23 @@ __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap
 
 (0,_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])(_data__WEBPACK_IMPORTED_MODULE_1__["default"]);
 (0,_scss_demoStorages__WEBPACK_IMPORTED_MODULE_3__["default"])(_data__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+var _iterator = _createForOfIteratorHelper(document.querySelectorAll('.btn')),
+    _step;
+
+try {
+  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+    var btn = _step.value;
+
+    btn.onclick = function (e) {
+      e.target.style.color = 'green';
+    };
+  }
+} catch (err) {
+  _iterator.e(err);
+} finally {
+  _iterator.f();
+}
 
 /***/ }),
 
@@ -3284,7 +3307,8 @@ var renderNames = function renderNames(books) {
         var h5 = document.createElement('h5');
         h5.textContent = book.name;
         var btn = document.createElement('button');
-        btn.innerHTML = '(<i class="bi bi-cart"></i>)';
+        btn.className = 'btn';
+        btn.innerHTML = '<i class="bi bi-cart"></i>';
         var ul = document.createElement('ul');
         var liISBN = document.createElement('li');
         liISBN.style.listStyle = "none";
@@ -3335,15 +3359,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-btn.addEventListener('click', wishBtn);
-
-function wishBtn() {
-  var demoStorages = function demoStorages(data) {
-    localStorage.setItem('books', JSON.stringify(data));
-    var books = JSON.parse(localStorage.getItem('books'));
-    console.log(books);
-  };
-}
+var demoStorages = function demoStorages(data) {
+  localStorage.setItem('books', JSON.stringify(data));
+  var books = JSON.parse(localStorage.getItem('books'));
+  console.log(books);
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (demoStorages);
 
