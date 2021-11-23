@@ -34,6 +34,9 @@ const renderNames = (books) => {
                 
                 const h5 = document.createElement('h5');
                 h5.textContent = book.name;
+                const btn= document.createElement('button')
+                btn.innerHTML='(<i class="bi bi-cart"></i>)'
+
     
                 const ul = document.createElement('ul');
     
@@ -58,6 +61,7 @@ const renderNames = (books) => {
                 ul.appendChild(liPrice);
     
                 bookArea.appendChild(h5);
+                bookArea.appendChild(btn)
                 bookArea.appendChild(ul);
                 accordBody.appendChild(bookArea);
 

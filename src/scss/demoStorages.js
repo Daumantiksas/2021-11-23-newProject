@@ -1,0 +1,15 @@
+
+btn.addEventListener('click', wishBtn)
+
+function wishBtn () {
+    const demoStorages = (data) => {
+
+        localStorage.setItem('books', JSON.stringify(data))
+        const books = JSON.parse(localStorage.getItem('books'))
+        console.log(books)
+    }
+}
+
+
+export default demoStorages;
+

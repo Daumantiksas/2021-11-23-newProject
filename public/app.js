@@ -3129,12 +3129,17 @@ var accordion = function accordion(books) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./accordion */ "./src/accordion.js");
 /* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data */ "./src/data.js");
+/* harmony import */ var _students__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./students */ "./src/students.js");
+/* harmony import */ var _scss_demoStorages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scss/demoStorages */ "./src/scss/demoStorages.js");
+
+
 
 
 
 __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 
 (0,_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])(_data__WEBPACK_IMPORTED_MODULE_1__["default"]);
+(0,_scss_demoStorages__WEBPACK_IMPORTED_MODULE_3__["default"])(_data__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 /***/ }),
 
@@ -3278,6 +3283,8 @@ var renderNames = function renderNames(books) {
         bookArea.style.padding = "20px";
         var h5 = document.createElement('h5');
         h5.textContent = book.name;
+        var btn = document.createElement('button');
+        btn.innerHTML = '(<i class="bi bi-cart"></i>)';
         var ul = document.createElement('ul');
         var liISBN = document.createElement('li');
         liISBN.style.listStyle = "none";
@@ -3296,6 +3303,7 @@ var renderNames = function renderNames(books) {
         liPrice.style.listStyle = "none";
         ul.appendChild(liPrice);
         bookArea.appendChild(h5);
+        bookArea.appendChild(btn);
         bookArea.appendChild(ul);
         accordBody.appendChild(bookArea);
       }
@@ -3314,6 +3322,57 @@ var renderNames = function renderNames(books) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderNames);
+
+/***/ }),
+
+/***/ "./src/scss/demoStorages.js":
+/*!**********************************!*\
+  !*** ./src/scss/demoStorages.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+btn.addEventListener('click', wishBtn);
+
+function wishBtn() {
+  var demoStorages = function demoStorages(data) {
+    localStorage.setItem('books', JSON.stringify(data));
+    var books = JSON.parse(localStorage.getItem('books'));
+    console.log(books);
+  };
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (demoStorages);
+
+/***/ }),
+
+/***/ "./src/students.js":
+/*!*************************!*\
+  !*** ./src/students.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var students = [{
+  name: "Jonas",
+  lname: "Jonaitis"
+}, {
+  name: 'Petras',
+  lname: 'Petraitis'
+}, {
+  name: "Daumantas",
+  lname: "Stankevicius"
+}, {
+  name: "Kazys",
+  lname: "Maskvytis"
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (students);
 
 /***/ }),
 
