@@ -3130,13 +3130,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./accordion */ "./src/accordion.js");
 /* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data */ "./src/data.js");
 /* harmony import */ var _students__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./students */ "./src/students.js");
-/* harmony import */ var _scss_demoStorages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scss/demoStorages */ "./src/scss/demoStorages.js");
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+/* harmony import */ var _scss_shoppingCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scss/shoppingCard */ "./src/scss/shoppingCard.js");
 
 
 
@@ -3145,24 +3139,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 
 (0,_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])(_data__WEBPACK_IMPORTED_MODULE_1__["default"]);
-(0,_scss_demoStorages__WEBPACK_IMPORTED_MODULE_3__["default"])(_data__WEBPACK_IMPORTED_MODULE_1__["default"]);
-
-var _iterator = _createForOfIteratorHelper(document.querySelectorAll('.btn')),
-    _step;
-
-try {
-  for (_iterator.s(); !(_step = _iterator.n()).done;) {
-    var btn = _step.value;
-
-    btn.onclick = function (e) {
-      e.target.style.color = 'green';
-    };
-  }
-} catch (err) {
-  _iterator.e(err);
-} finally {
-  _iterator.f();
-}
+(0,_scss_shoppingCard__WEBPACK_IMPORTED_MODULE_3__["default"])(_data__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 /***/ }),
 
@@ -3349,9 +3326,9 @@ var renderNames = function renderNames(books) {
 
 /***/ }),
 
-/***/ "./src/scss/demoStorages.js":
+/***/ "./src/scss/shoppingCard.js":
 /*!**********************************!*\
-  !*** ./src/scss/demoStorages.js ***!
+  !*** ./src/scss/shoppingCard.js ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -3359,13 +3336,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var demoStorages = function demoStorages(data) {
-  localStorage.setItem('books', JSON.stringify(data));
-  var books = JSON.parse(localStorage.getItem('books'));
-  console.log(books);
+var shoppingCard = function shoppingCard(books) {
+  var btn = document.querySelectorAll('.btn');
+
+  var _loop = function _loop(i) {
+    btn[i].addEventListener('click', function () {
+      var Array = [];
+      if (JSON.parse(localStorage.getItem('bookArray')) != null) Array = JSON.parse(localStorage.getItem('bookArray'));
+      Array.push(document.querySelectorAll('h5')[i].textContent);
+      console.log(Array);
+      localStorage.setItem('bookArray', JSON.stringify(Array));
+    });
+  };
+
+  for (var i = 0; i < btn.length; i++) {
+    _loop(i);
+  }
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (demoStorages);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (shoppingCard);
 
 /***/ }),
 

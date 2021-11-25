@@ -1,14 +1,9 @@
 import accordion from "./accordion";
 import books from "./data";
 import students from "./students";
-import demoStorages from "./scss/demoStorages";
+import shoppingCard from "./scss/shoppingCard";
 require('bootstrap');
 
 accordion(books);
-demoStorages(books);
+shoppingCard(books)
 
-
-for(let btn of document.querySelectorAll('.btn')){
-    btn.onclick = (e)=>{
-        e.target.style.color = 'green';
-    }}
